@@ -103,7 +103,7 @@ const experiencias = ref([
 </script>
 
 <template>
-  <div class="card">
+  <div class="card bg-gradient-animated">
     <ul class="listado">
       <li class="item" v-for="experencia in experiencias" :key="experencia.id">
         <img class="imagen-svg" :src="experencia.src" width="45rem" :alt="experencia.puesto" />
@@ -115,22 +115,6 @@ const experiencias = ref([
           </ul>
         </div>
       </li>
-
-      <!-- <li class="item"><img class="imagen-svg" src="/src/assets/ventas.svg" width="45rem" alt="">
-                <p>Lideré un equipo de 5 desarrolladores en la creación de una plataforma de comercio electrónico que incrementó las ventas en un 35% durante el primer año.</p>
-            </li>
-            <li class="item"><img class="imagen-svg" src="/src/assets/ecomerce.svg" width="45rem" alt="">
-                <p>Diseñé y desarrollé aplicaciones web utilizando Node.js, React y MongoDB, logrando reducir el tiempo de carga de las páginas en un 50%.</p>
-            </li>
-            <li class="item"><img class="imagen-svg" src="/src/assets/configuracion.svg" width="45rem" alt="">
-                <p>Implementé soluciones de autenticación y autorización, mejorando la seguridad del sitio web y reduciendo los intentos de acceso no autorizado en un 20%.</p>
-            </li>
-            <li class="item"><img class="imagen-svg" src="/src/assets/uiux.svg" width="45rem" alt="">
-                <p>Colaboré con diseñadores de UX/UI para crear interfaces de usuario atractivas y fáciles de usar, aumentando la satisfacción del cliente en un 15%.</p>
-            </li>
-            <li class="item"><img class="imagen-svg" src="/src/assets/watch.svg" width="45rem" alt="">
-                <p>Automaticé procesos de despliegue continuo utilizando Jenkins y Docker, reduciendo los tiempos de despliegue en un 40%.</p>
-            </li> -->
     </ul>
   </div>
 </template>
@@ -179,5 +163,80 @@ const experiencias = ref([
 
 .logros li {
   margin-bottom: 0.5rem;
+}
+
+/* Overrides SOLO para MODO CLARO: mantener modo oscuro intacto */
+@media (prefers-color-scheme: light) {
+  .card {
+    /* Dejamos que el fondo degradado animado de la clase global se vea */
+    background-color: transparent;
+  }
+
+  .listado {
+    border-radius: 20px;
+    background-color: #f9f9f9 ;
+  }
+
+
+  .titulo {
+    color: #333;
+  }
+
+  .fecha {
+    color: #666;
+  }
+
+  .logros li {
+    color: #333;
+  }
+}
+
+/* Responsividad y legibilidad en pantallas pequeñas */
+@media (max-width: 768px) {
+  .card {
+    padding: 1rem;
+  }
+
+  .listado {
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 12px;
+  }
+
+  .imagen-svg {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  .contenido {
+    align-items: center;
+  }
+
+  .titulo {
+    font-size: 1.25rem;
+  }
+
+  .fecha {
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .logros {
+    padding-left: 0;
+    text-align: left;
+    max-width: 95%;
+  }
+
+  .logros li {
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+  }
 }
 </style>

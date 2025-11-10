@@ -83,7 +83,7 @@ const habilidades = ref([
 
 <template>
     <!--Este componente vue funciona de esta forma:-->
-    <div class="skills-contenedor">
+    <div class="skills-contenedor bg-gradient-animated">
         <!--Se recorre el array habilidades con v-for y se asigna la key habilidad.id-->
         <div v-for="habilidad in habilidades" :key="habilidad.id" class="skills-categoria">
             <!--Se muestra el nombre de la habilidad-->
@@ -104,15 +104,8 @@ const habilidades = ref([
 <style scoped>
 .skills-contenedor {
     padding: 2rem;
-    /*Fondo cargado desde una imagen estatica en Assets*/
-    /* background-image: url('/src/assets/fondo-proyectos.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; */
-    /*Fondo con gradiente*/
+    border-radius: 10px;
     background: linear-gradient(-45deg, #021526, #03346E, #6EACDA, #E2E2B6);
-    /*Fondo con color solido*/
-    /* background-color: rgb(28, 41, 52); */
 }
 
 .skills-categoria {
@@ -157,6 +150,28 @@ const habilidades = ref([
 .skill span {
     font-size: 1em;
     color: #333;
+}
+
+/* Overrides SOLO para MODO CLARO: mantener modo oscuro intacto */
+@media (prefers-color-scheme: light) {
+    .skills-contenedor {
+        /* Dejamos ver el fondo degradado animado de la clase global */
+        border-radius: 10px;
+    }
+
+    .skills-categoria h3 {
+        color: #333;
+    }
+
+    .skill {
+        background-color: #f9f9f9;
+        border: 2px solid #ddd;
+        box-shadow: none;
+    }
+
+    .skill span {
+        color: #333;
+    }
 }
 
 @media (max-width: 768px) {

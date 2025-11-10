@@ -105,3 +105,39 @@ section h2{
 section h3{
   color: rgb(209, 183, 148);
 }
+
+/* Corrección de legibilidad para títulos de secciones en MODO CLARO */
+@media (prefers-color-scheme: light) {
+  section h2 {
+    color: #333; /* Texto oscuro para buena lectura en modo claro */
+  }
+}
+
+/* Estilos específicos para MODO CLARO: fondo degradado animado reutilizable */
+@media (prefers-color-scheme: light) {
+  /* Clase reutilizable para aplicar el mismo comportamiento visual
+     que la galería de Proyectos en modo claro, SIN afectar modo oscuro */
+  .bg-gradient-animated {
+    /* Aplica un fondo con un degradado de colores */
+    background: linear-gradient(-45deg, #021526, #03346E, #6EACDA, #E2E2B6);
+    /* Ajusta el tamaño del fondo para que cubra el área completa */
+    background-size: 400% 400%;
+    /* Aplica una animación al fondo que dura 15 segundos, tiene una transición suave y se repite infinitamente */
+    animation: gradient-bg 15s ease infinite;
+    /* Suaviza bordes para contenedores como cards o sections */
+    border-radius: 10px;
+  }
+
+  /* Keyframes exclusivos para la clase anterior en modo claro */
+  @keyframes gradient-bg {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}

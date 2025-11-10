@@ -10,7 +10,7 @@ const intereses = ref([
 </script>
 
 <template>
-  <div class="intereses-contenedor">
+  <div class="intereses-contenedor bg-gradient-animated">
     <ul class="contenedor-lista">
       <li class="item" v-for="interes in intereses" :key="interes">
         {{ interes }}
@@ -41,5 +41,24 @@ const intereses = ref([
 
 .item {
   margin-bottom: 1rem;
+}
+
+/* Overrides SOLO para MODO CLARO: mantener modo oscuro intacto */
+@media (prefers-color-scheme: light) {
+  .intereses-contenedor {
+    /* Dejamos ver el fondo degradado animado de la clase global */
+    background-color: transparent;
+    border: 2px solid #ddd;
+  }
+
+  .contenedor-lista {
+    color: #1f2937; /* texto oscuro para alto contraste */
+    text-shadow: none;
+    /* Añadimos una capa translúcida para asegurar legibilidad sobre el gradiente */
+    background: rgba(255, 255, 255, 0.78);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    backdrop-filter: saturate(160%) blur(6px);
+  }
 }
 </style>

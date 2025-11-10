@@ -13,12 +13,12 @@ const presentacion =
 const redesSociales = [
   { id: 1, name: 'linkedin', src: linkedin, url: 'https://www.linkedin.com/in/pablo-r-velasco/' },
   { id: 3, name: 'github', src: github, url: 'https://github.com/Pablo-r-stack' },
-  { id: 4, name: 'curriculum', src: cv, url: '' },
+  { id: 4, name: 'curriculum', src: cv, url: 'https://drive.usercontent.google.com/uc?id=1PExmlWGaoRN8RU4L2pam1ncfnXaHLt3R&export=download' },
 ]
 </script>
 
 <template>
-  <section class="datos-personales">
+  <section class="datos-personales bg-gradient-animated">
     <div class="card">
       <div class="card-body">
           <h1>{{ title }}</h1>
@@ -122,6 +122,25 @@ p {
 h2 {
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+/* Overrides SOLO para MODO CLARO: mantener modo oscuro intacto */
+@media (prefers-color-scheme: light) {
+  .datos-personales .card {
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+  }
+
+  .datos-personales h1,
+  .datos-personales h2,
+  .datos-personales p,
+  .datos-personales .location {
+    color: #333;
+  }
+
+  .datos-personales .icon-redsocial {
+    background-color: #eef5ff;
+  }
 }
 
 @media (max-width: 768px) {
